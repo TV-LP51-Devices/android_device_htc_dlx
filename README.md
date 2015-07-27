@@ -7,7 +7,7 @@ After everything syncs make sure that from the ROM root you have /.repo/local_ma
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-<project path="device/htc/dlx" name="Oggie7797/android_device_htc_dlx" revision="cm-12.1" remote="gh" />
+<project path="device/htc/dlx" name="TV-LP51-Devices/android_device_htc_dlx" revision="cm-12.1" remote="gh" />
 <project path="device/htc/msm8960-common" name="CyanogenMod/android_device_htc_msm8960-common" revision="cm-12.1" remote="gh" />
 <project path="device/qcom/common" name="CyanogenMod/android_device_qcom_common" revision="cm-12.1" remote="gh" />
 <project path="kernel/htc/m7" name="CyanogenMod/android_kernel_htc_m7" revision="cm-12.1" remote="gh" />
@@ -26,14 +26,12 @@ time mka validus -j5 2>&1
 
 If you want to speed up your build times in your .bashrc add these line to the bottom:
 
-# Build Flags
 export CCACHE_DIR=$HOME/.ccache
 export USE_CCACHE=1
 export USE_PREBUILT_CHROMIUM=1
 
 alias git-pl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-#set up ccache if not present
 if [ ! -d "$CCACHE_DIR" ]; then
     $HOME/android/TV/prebuilts/misc/linux-x86/ccache/ccache -M 50G
 fi
