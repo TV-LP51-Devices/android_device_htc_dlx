@@ -2,21 +2,7 @@ To build Validus for DNA run these commands:
 
 mkdir android/TV && cd android/TV && repo init - u git://github.com/TV-LP51/android.git -b lp5.1 && repo sync -j5
 
-After everything syncs make sure that from the ROM root you have /.repo/local_manifests and create a file called local_manifests.xml and inside of this file make sure it has this:
-
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-
-<project path="device/htc/dlx" name="TV-LP51-Devices/android_device_htc_dlx" revision="cm-12.1" remote="gh" />
-<project path="device/htc/msm8960-common" name="CyanogenMod/android_device_htc_msm8960-common" revision="cm-12.1" remote="gh" />
-<project path="device/qcom/common" name="CyanogenMod/android_device_qcom_common" revision="cm-12.1" remote="gh" />
-<project path="kernel/htc/m7" name="CyanogenMod/android_kernel_htc_m7" revision="cm-12.1" remote="gh" />
-<project path="vendor/htc" name="proprietary_vendor_htc" revision="cm-12.1" remote="tm" />
-</manifest>
-
-Save the file and run:
-
-repo sync -j5
+Personally I like to rerun repo sync after an initial sync because it takes so long but that's up to you.
 
 Now for the fun part....building!!
 
@@ -24,7 +10,7 @@ Now for the fun part....building!!
 (enter device number)
 time mka validus -j5 2>&1
 
-If you want to speed up your build times in your .bashrc add these line to the bottom:
+If you want to speed up your build times in your .bashrc add these lines to the bottom:
 
 export CCACHE_DIR=$HOME/.ccache
 export USE_CCACHE=1
