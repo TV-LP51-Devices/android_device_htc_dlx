@@ -62,3 +62,7 @@ ro.telephony.ril_class=DlxRIL
 # USB
 persist.sys.isUsbOtgEnabled=true
 persist.sys.usb.config=mtp
+
+###########
+#Oggie7797#
+###########
