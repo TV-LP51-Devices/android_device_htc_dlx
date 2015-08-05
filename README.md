@@ -22,7 +22,7 @@ Now for the fun part....building!!
 
 . build/envsetup.sh && lunch
 (enter device number)
-time mka validus -j5 2>&1
+time mka validus
 
 If you want to speed up your build times in your .bashrc add these line to the bottom:
 
