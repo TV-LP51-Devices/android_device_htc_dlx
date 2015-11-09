@@ -43,7 +43,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 #Kernel
 BOARD_KERNEL_BASE := 0x80600000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=dlx user_debug=0 androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=dlx user_debug=0
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := cyanogenmod_dlx_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
@@ -64,7 +64,8 @@ COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # CMHW
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 
 # Graphics
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -104,8 +105,6 @@ BOARD_SEPOLICY_UNION += \
     surfaceflinger.te \
     system_server.te \
     tee.te \
-    thermal-engine.te \
-    thermald.te \
     vold.te \
     wpa.te
 
@@ -139,7 +138,8 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
-# Added for Clockworkmod
+# Recovery
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_USERIMAGES_USE_EXT4 := true
